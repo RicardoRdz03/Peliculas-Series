@@ -49,7 +49,7 @@ function PaginaPrincipal() {
       <main style={{ backgroundColor: "rgb(20,20,20)" }}>
         <section>
           {isLoading ? (
-            <h3 style={{ textAlign: "center" }}>
+            <h3 style={{ textAlign: "center", height: "55vh" }}>
               Cargando peliculas, por favor espere la respuesta del servidor...
             </h3>
           ) : (
