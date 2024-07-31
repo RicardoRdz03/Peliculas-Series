@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navb() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,34 +11,28 @@ function Navb() {
   return (
     <>
       <nav>
+        <button onClick={abrirMenu} className="btn-burger">
+          <i
+            style={{ fontSize: "large", color: "white" }}
+            className="fi fi-rs-bars-sort"
+          ></i>
+        </button>
         <div className="logo">
-          <button onClick={abrirMenu} className="btn-burger">
-            <i
-              style={{ fontSize: "large", color: "white" }}
-              className="fi fi-rs-bars-sort"
-            ></i>
-          </button>
-          <img src="/palomitas-de-maiz.png" alt="" />
-          <h2>PelisenHD</h2>
+          <Link to="/">
+            <div className="logo">
+              <img src="/palomitas-de-maiz.png" alt="" />
+              <h2>PelisenHD</h2>
+            </div>
+          </Link>
         </div>
         <div className="links">
           <a href="">Peliculas</a>
           <a href="">Series</a>
-          <input placeholder="Buscar..." type="text" />
-          <button className="buscar">
-            <i style={{ color: "white" }} className="fi fi-br-search"></i>
-          </button>
         </div>
       </nav>
       <div className={`menu ${isOpen ? "active" : ""}`}>
         <a href="">Peliculas</a>
         <a href="">Series</a>
-        <div>
-          <input placeholder="Buscar..." type="text" />
-          <button className="buscar">
-            <i style={{ color: "white" }} className="fi fi-br-search"></i>
-          </button>
-        </div>
       </div>
     </>
   );

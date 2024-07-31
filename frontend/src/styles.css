@@ -10,7 +10,7 @@ body {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: rgb(48, 48, 48);
   color: white;
   padding-left: 1rem;
@@ -18,7 +18,12 @@ nav {
   box-shadow: 0px 1px 15px 5px rgb(0, 0, 0, 0.3);
 }
 
-nav div a {
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.links a {
   text-decoration: none;
   color: white;
   padding: 1rem 1rem;
@@ -27,26 +32,28 @@ nav div a {
   margin-right: 1rem;
 }
 
-nav div a:hover {
+.links a:hover {
   background-color: rgb(99, 99, 99);
 }
 
 .logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 input {
   padding: 0.4rem 1rem;
   border-radius: 9px;
-  border: none;
+  border: 1px solid white;
+  background-color: #242424;
   outline: none;
   margin-left: 0.5rem;
+  color: white;
 }
 
 input:focus {
-  outline-style: solid;
-  outline-color: rgb(103, 126, 168);
+  border: 1px solid rgb(103, 126, 168);
 }
 
 .buscar {
@@ -75,6 +82,7 @@ input:focus {
 
 .logo img {
   width: 40px;
+  margin-right: 1rem;
 }
 
 .menu {
@@ -99,7 +107,10 @@ input:focus {
 
 .grid-peliculas {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 4rem;
+  width: 80%;
+  margin: 0 auto;
   margin-top: 4rem;
 }
 
@@ -107,10 +118,11 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  transition: all 0.3s;
 }
-
-.columna1-peliculas div img {
-  width: 200px;
+.caratula {
+  width: 180px;
   border-radius: 9px;
   cursor: pointer;
   transition: all 0.3s;
@@ -240,12 +252,38 @@ footer span {
   margin-right: 1.5rem;
 }
 
+.cabecera {
+  height: 40vh;
+  background-image: linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 1)),
+    url(/Imagen3.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cabecera h1 {
+  color: white;
+}
+
 @media (max-width: 700px) {
   .links {
     display: none;
   }
   .grid-peliculas {
     grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5rem;
+  }
+  .caratula {
+    width: 130px;
+  }
+  nav {
+    justify-content: start;
   }
 }
 
@@ -277,12 +315,6 @@ footer span {
   }
 }
 
-@media (max-width: 450px) {
-  .grid-peliculas {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 850px) {
   .grid-info2 {
     width: 80%;
@@ -305,4 +337,24 @@ footer span {
 }
 
 @media (min-width: 700px) {
+  .btn-burger {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid-peliculas {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .columna1-peliculas {
+    font-size: small;
+  }
+  .columna1-peliculas p {
+    margin-bottom: 3rem;
+  }
+}
+@media (max-width: 500px) {
+  .grid-peliculas {
+    grid-template-columns: 1fr 1fr;
+  }
 }
