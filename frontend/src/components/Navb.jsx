@@ -26,8 +26,8 @@ function Navb() {
           </Link>
         </div>
         <div className="links">
-          <a href="">Peliculas</a>
-          <a href="">Series</a>
+          <Link to="/peliculas">Peliculas</Link>
+          <Link to="/series">Series</Link>
         </div>
       </nav>
       <div className={`menu ${isOpen ? "active" : ""}`}>

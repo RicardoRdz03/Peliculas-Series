@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = myqsl.createConnection({
-  host: "mysql-ricardo-web.alwaysdata.net",
-  user: "358044",
-  password: "Rickardo2903.",
-  database: "ricardo-web_peliculas",
+  host: "127.0.0.1",
+  user: "root",
+  password: "",
+  database: "peliculas-series",
 });
 
 db.connect((err) => {

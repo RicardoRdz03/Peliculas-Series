@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navb from "./Navb";
-import Footer from "./Footer";
+import Navb from "../components/Navb";
+import Footer from "../components/Footer";
 
 function InfoPeli() {
   const [pelicula, setPelicula] = useState([]); // Cambiar a objeto único
@@ -26,7 +26,7 @@ function InfoPeli() {
   if (!pelicula) {
     return (
       <div>
-        <h1>404 Not Found</h1>
+        <h1 style={{ color: "white" }}>404 Not Found</h1>
       </div>
     );
   }

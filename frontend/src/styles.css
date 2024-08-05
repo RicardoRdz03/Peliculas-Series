@@ -1,3 +1,6 @@
+:root {
+  background-color: rgb(20, 20, 20);
+}
 * {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -267,6 +270,50 @@ footer span {
 
 .cabecera h1 {
   color: white;
+}
+
+.cabecera-peliculas {
+  height: 40vh;
+  background-image: linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 1)),
+    url(/3.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cabecera-peliculas h1 {
+  color: white;
+  font-size: 3rem;
+}
+
+.cabecera-series {
+  height: 40vh;
+  background-image: linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 1)),
+    url(/qwe.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cabecera-series h1 {
+  color: white;
+  font-size: 3rem;
+}
+
+.cargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
 }
 
 @media (max-width: 700px) {

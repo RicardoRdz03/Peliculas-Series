@@ -1,43 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navb from "./Navb";
-import Footer from "./Footer";
+import Navb from "../components/Navb";
+import Footer from "../components/Footer";
+import { useExtraerPeliSeries } from "../hooks/useExtraerPeliSeries";
+import { useBuscarPeliSerie } from "../hooks/useBuscarPeliSerie";
 
 function PaginaPrincipal() {
-  const [peliculas, setPeliculas] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [inputt, setInputt] = useState("");
-  const [buscarPeli, setBuscarPeli] = useState(false);
-  const [peliculaEncontrada, setPeliculaEncontrada] = useState([]);
-
-  const datosPeliculas = async () => {
-    try {
-      const response = await fetch("http://localhost:3001/peliculas");
-      const info = await response.json();
-      setPeliculas(info);
-      setIsLoading(false);
-    } catch (err) {
-      console.log("Error al extraer los datos");
-      setIsLoading(false);
-    }
-  };
-
-  const buscarPelicula = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3001/peliculas");
-      const info = await response.json();
-      const inputLower = inputt.toLowerCase();
-      const laPelic = info.filter((p) =>
-        p.titulo.toLowerCase().includes(inputLower)
-      );
-
-      setPeliculaEncontrada(laPelic);
-      setBuscarPeli(true);
-    } catch (error) {
-      console.log("Error al buscar pelicula", error);
-    }
-  };
+  const { peliculas, isLoading, datosPeliculas } = useExtraerPeliSeries();
+  const { setInputt, buscarPeli, peliculaEncontrada, buscarPelicula } =
+    useBuscarPeliSerie();
 
   useEffect(() => {
     datosPeliculas();
@@ -49,9 +20,13 @@ function PaginaPrincipal() {
       <main style={{ backgroundColor: "rgb(20,20,20)" }}>
         <section>
           {isLoading ? (
-            <h3 style={{ textAlign: "center", height: "55vh" }}>
-              Cargando peliculas, por favor espere la respuesta del servidor...
-            </h3>
+            <div className="cargando">
+              <h3 style={{ textAlign: "center", color: "white" }}>
+                Cargando peliculas, por favor espere la respuesta del
+                servidor...
+              </h3>
+              <img width={100} src="/loading2.gif" alt="" />
+            </div>
           ) : (
             <section>
               <div className="cabecera">
