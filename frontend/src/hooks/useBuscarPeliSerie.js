@@ -8,7 +8,9 @@ export function useBuscarPeliSerie() {
   const buscarPelicula = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/peliculas");
+      const response = await fetch(
+        "https://peliculas-series.onrender.com/peliculas"
+      );
       const info = await response.json();
       const inputLower = inputt.toLowerCase();
       const laPelic = info.filter((p) =>

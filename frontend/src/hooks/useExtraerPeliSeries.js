@@ -5,7 +5,9 @@ export function useExtraerPeliSeries() {
   const [isLoading, setIsLoading] = useState(true);
   const datosPeliculas = async () => {
     try {
-      const response = await fetch("http://localhost:3001/peliculas");
+      const response = await fetch(
+        "https://peliculas-series.onrender.com/peliculas"
+      );
       const info = await response.json();
       setPeliculas(info);
       setIsLoading(false);

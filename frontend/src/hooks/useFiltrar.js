@@ -6,7 +6,9 @@ export function useFiltrar(dato) {
 
   const extraerPeliculas = async () => {
     try {
-      const response = await fetch("http://localhost:3001/peliculas");
+      const response = await fetch(
+        "https://peliculas-series.onrender.com/peliculas"
+      );
       const info = await response.json();
       const pelis = info.filter((p) => p.tipo === dato);
       setSoloPeliculas(pelis);
