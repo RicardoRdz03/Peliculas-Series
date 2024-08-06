@@ -10,7 +10,9 @@ function InfoPeli() {
   useEffect(() => {
     const extraer = async () => {
       try {
-        const response = await fetch("http://localhost:3001/peliculas");
+        const response = await fetch(
+          "https://peliculas-series.onrender.com/peliculas"
+        );
         const info = await response.json();
         const peliculaEncontrada = info.find(
           (p) => p.titulo.toString() === titulo
