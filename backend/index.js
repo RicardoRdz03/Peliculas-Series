@@ -1,7 +1,7 @@
 import express from "express";
 import myqsl from "mysql";
 import cors from "cors";
-import { configDotenv } from "dotenv";
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -37,7 +37,7 @@ app.get("/peliculas", (req, res) => {
   });
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
