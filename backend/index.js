@@ -1,8 +1,9 @@
 import express from "express";
 import myqsl from "mysql";
 import cors from "cors";
-require("dotenv").config();
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
