@@ -1,16 +1,17 @@
 import express from "express";
 import myqsl from "mysql";
 import cors from "cors";
+import { configDotenv } from "dotenv";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 const db = myqsl.createConnection({
-  host: "mysql-ricardo-web.alwaysdata.net",
-  user: "358044",
-  password: "Rickardo2903.",
-  database: "ricardo-web_peliculas",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 });
 
 db.connect((err) => {
